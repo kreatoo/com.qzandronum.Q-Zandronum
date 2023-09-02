@@ -1,9 +1,9 @@
 [Desktop Entry]
-Comment=Leading the way in newschool multiplayer Doom online
+Comment=A Zandronum 3.0 fork with improved netcode, configurable movement and many small tweaks
 Categories=Game;Shooter;
 Exec=doomseeker.sh
-Icon=com.zandronum.Zandronum
-Name=Zandronum
+Icon=com.qzandronum.Q-Zandronum
+Name=Q-Zandronum
 StartupNotify=true
 PrefersNonDefaultGPU=true
 Terminal=false

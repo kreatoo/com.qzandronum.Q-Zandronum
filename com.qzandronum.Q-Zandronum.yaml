@@ -1,4 +1,4 @@
-app-id: com.zandronum.Zandronum
+app-id: com.qzandronum.Q-Zandronum
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: 5.15-22.08
@@ -122,55 +122,53 @@ modules:
           - sed -i 's/HG_TIME/"'$(date --iso-8601=seconds)'"/g' ./src/core/version.cpp
           # Skip irrelevant plugins
           - sed -i 's/add_opt_subdirectory(chocolate-doom)//g' ./src/plugins/CMakeLists.txt
-          - sed -i 's/add_opt_subdirectory(zandronumq)//g' ./src/plugins/CMakeLists.txt
+          - sed -i 's/add_opt_subdirectory(zandronum)//g' ./src/plugins/CMakeLists.txt
           - sed -i 's/add_opt_subdirectory(odamex)//g' ./src/plugins/CMakeLists.txt
           - sed -i 's/add_opt_subdirectory(srb2)//g' ./src/plugins/CMakeLists.txt
           - sed -i 's/add_opt_subdirectory(turok2ex)//g' ./src/plugins/CMakeLists.txt
 
   # Zandronum is such a work of art, that it's better for all of us to just
   # take the upstream package and call it a day.
-  - name: zandronum
+  - name: q-zandronum
     buildsystem: simple
     build-commands:
-      - tar -xf zandronum3.1-linux-x86_64.tar.bz2
-      - install -D zandronum /app/bin/zandronum
-      - install -D zandronum-server /app/bin/zandronum-server
-      - install -D brightmaps.pk3 /app/share/games/brightmaps.pk3
-      - install -D skulltag_actors.pk3 /app/share/games/skulltag_actors.pk3
-      - install -D zandronum.pk3 /app/share/games/doom/zandronum.pk3
+      - tar -xf Q-Zandronum_1.4.5_Linux_amd64.tar.gz
+      - install -D q-zandronum /app/bin/q-zandronum
+      - install -D q-zandronum-server /app/bin/q-zandronum-server
+      - install -D q-zandronum.pk3 /app/share/games/doom/q-zandronum.pk3
       - install -D libfmodex64-4.44.64.so /app/lib/libfmodex64-4.44.64.so
     sources:
       - type: file
-        url: https://zandronum.com/downloads/zandronum3.1-linux-x86_64.tar.bz2
-        sha256: 3dee92d2ab9ad9d7c485b46cac28c381e46ff9fe060695a9ca5034dd425dc9c6
-        x-checker-data:
-          type: html
-          url: https://zandronum.com/download
-          version-pattern: <p>The latest version is <strong>([\d\.]+)</strong>, released
-            on December 2021.</p>
-          url-template: https://zandronum.com/downloads/zandronum$version-linux-x86_64.tar.bz2
+        url: https://github.com/IgeNiaI/Q-Zandronum/releases/download/1.4.5/Q-Zandronum_1.4.5_Linux_amd64.tar.gz
+        sha256: c7c506be92e69be576dcfcc563c4e6fceb5a4b0280bf17948f38a2023c7ef2f4
+          #x-checker-data:
+          #type: html
+          #url: https://zandronum.com/download
+          #version-pattern: <p>The latest version is <strong>([\d\.]+)</strong>, released
+          #  on December 2021.</p>
+          #url-template: https://zandronum.com/downloads/zandronum$version-linux-x86_64.tar.bz2
 
   - name: launcher
     buildsystem: simple
     build-commands:
       - install -Dm 744 doomseeker.sh /app/bin/doomseeker.sh
       - install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2
-      - install -Dm 644 com.zandronum.Zandronum.desktop -t /app/share/applications
-      - install -Dm 644 com.zandronum.Zandronum.appdata.xml -t /app/share/metainfo
-      - install -Dm 644 com.zandronum.Zandronum.48.png /app/share/icons/hicolor/48x48/apps/com.zandronum.Zandronum.png
-      - install -Dm 644 com.zandronum.Zandronum.64.png /app/share/icons/hicolor/64x64/apps/com.zandronum.Zandronum.png
-      - install -Dm 644 com.zandronum.Zandronum.128.png /app/share/icons/hicolor/128x128/apps/com.zandronum.Zandronum.png
+      - install -Dm 644 com.qzandronum.Q-Zandronum.desktop -t /app/share/applications
+      - install -Dm 644 com.qzandronum.Q-Zandronum.appdata.xml -t /app/share/metainfo
+      - install -Dm 644 com.qzandronum.Q-Zandronum.48.png /app/share/icons/hicolor/48x48/apps/com.qzandronum.Q-Zandronum.png
+      - install -Dm 644 com.qzandronum.Q-Zandronum.64.png /app/share/icons/hicolor/64x64/apps/com.qzandronum.Q-Zandronum.png
+      - install -Dm 644 com.qzandronum.Q-Zandronum.128.png /app/share/icons/hicolor/128x128/apps/com.qzandronum.Q-Zandronum.png
     sources:
       - type: file
-        path: com.zandronum.Zandronum.desktop
+        path: com.qzandronum.Q-Zandronum.desktop
       - type: file
-        path: com.zandronum.Zandronum.appdata.xml
+        path: com.qzandronum.Q-Zandronum.appdata.xml
       - type: file
-        path: com.zandronum.Zandronum.48.png
+        path: com.qzandronum.Q-Zandronum.48.png
       - type: file
-        path: com.zandronum.Zandronum.64.png
+        path: com.qzandronum.Q-Zandronum.64.png
       - type: file
-        path: com.zandronum.Zandronum.128.png
+        path: com.qzandronum.Q-Zandronum.128.png
       - type: file
         url: https://github.com/coelckers/gzdoom/raw/g4.8.2/soundfont/gzdoom.sf2
         sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
@@ -178,7 +176,7 @@ modules:
         dest-filename: doomseeker.sh
         commands:
           # Insert clean zandronum config if none defined
-          - ls ~/.config/zandronum/zandronum.ini || /app/bin/zandronum -nosound -norun
+          - ls ~/.config/zandronum/zandronum.ini || /app/bin/q-zandronum -nosound -norun
           # Neccessery evil to ensure that Zandronum doesn't crash because of the outdated
           # FMOD library: https://zandronum.com/forum/viewtopic.php?t=9885
           - sed -i 's|\(snd_output=\)\(.*\)|\1SDL|g' ~/.config/zandronum/zandronum.ini
